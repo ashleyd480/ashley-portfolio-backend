@@ -20,8 +20,15 @@ public class ProjectDetailDTO {
     @Temporal(TemporalType.DATE)
     private Date dateCompleted;
 
+
     private String projectHeaderImage;
     private String projectType;
+    private List<SkillDTO> skills;
+
+    private String projectBlurb;
+
+    private String projectUX;
+
 
     //TODO finish this one
 }

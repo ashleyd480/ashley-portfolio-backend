@@ -44,16 +44,16 @@ public class ProjectController {
         }
     }
 
-//    @GetMapping("/{projectId}")
-//    public ResponseEntity<?> getProjectDetailBId (@PathVariable Integer projectId) {
-//        List<ProjectDetailDTO> projectDetail = projectService.getProjectDetailById(projectId);
-//        ResponseDTO responseDTO = ResponseDTO.builder()
-//                    .hasError(false)
-//                    .data(projectDetail)
-//                    .status(HttpStatus.OK)
-//                    .build();
-//            return ResponseEntity.status(HttpStatus.OK).body(responseDTO);
-//        }
+    @GetMapping("/{projectId}")
+    public ResponseEntity<?> getProjectDetailBId (@PathVariable Integer projectId) {
+       ProjectDetailDTO projectDetail = projectService.getProjectDetailById(projectId);
+        ResponseDTO responseDTO = ResponseDTO.builder()
+                    .hasError(false)
+                    .data(projectDetail)
+                    .status(HttpStatus.OK)
+                    .build();
+            return ResponseEntity.status(HttpStatus.OK).body(responseDTO);
+        }
     }
 
 

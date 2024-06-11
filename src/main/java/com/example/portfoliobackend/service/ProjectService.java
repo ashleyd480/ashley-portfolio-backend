@@ -26,6 +26,8 @@ public class ProjectService {
     @Autowired
     ModelMapperUtil modelMapperUtil;
 
+    //TODO would i still need to add the try/catch blocks here or would the global exception handle that?
+
 public List<ProjectForListDTO> getAllProjectResults () {
 
     List<Project> allProjectsList = iProjectRepository.findAll();
@@ -49,8 +51,15 @@ public List<ProjectForListDTO> getAllProjectResults () {
 
 }
 
-//    public List<ProjectDetailtDTO> getProjectDetailById(String projectName) {
-//        System.out.println(hello);
-//        return List< ProjectDetailDTO > list
-//    }
+    public ProjectDetailDTO getProjectDetailById(Integer projectId) {
+        Project project=  iProjectRepository.findById(projectId).orElseThrow(()-> new RuntimeException("Project not found with this projectId" + projectId));
+        ProjectDetailDTO projectDetailDTO= modelMapperUtil.map(project, ProjectDetailDTO.class);
+        List <SkillDTO> skillDTOs = new ArrayList<> ();
+        for (Skill skill : project.getSkills()){
+            skillDTOs.add(modelMapperUtil.map(skill, SkillDTO.class));
+        }
+        projectDetailDTO.setSkills(skillDTOs);
+
+        return projectDetailDTO;
+    }
 }
