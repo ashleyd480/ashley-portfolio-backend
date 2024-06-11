@@ -40,7 +40,7 @@ public class ProjectController {
                     .data(allProjectResults)
                     .status(HttpStatus.OK)
                     .build();
-            return ResponseEntity.status(HttpStatus.OK).body(responseDTO);
+            return ResponseEntity.ok(responseDTO);
         }
     }
 
@@ -52,7 +52,7 @@ public class ProjectController {
                     .data(projectDetail)
                     .status(HttpStatus.OK)
                     .build();
-            return ResponseEntity.status(HttpStatus.OK).body(responseDTO);
+        return ResponseEntity.ok(responseDTO);
         }
     }
 
