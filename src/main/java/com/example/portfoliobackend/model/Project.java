@@ -44,6 +44,9 @@ public class Project {
     @Column(name = "projectuX", length = 1000)
     private String projectUX;
 
+    @Column(name = "project_video")
+    private String projectVideo;
+
     /*doing join table from projects since I figure I will be querying more from Projects */
 
     @ManyToMany(cascade = { CascadeType.ALL })

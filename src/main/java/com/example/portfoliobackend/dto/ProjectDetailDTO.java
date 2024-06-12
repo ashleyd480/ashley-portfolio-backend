@@ -1,6 +1,7 @@
 package com.example.portfoliobackend.dto;
 
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 import lombok.AllArgsConstructor;
@@ -29,6 +30,8 @@ public class ProjectDetailDTO {
 
     private String projectUX;
 
+    private String projectVideo;
 
-    //TODO finish this one
+    private String projectURL;
+
 }
