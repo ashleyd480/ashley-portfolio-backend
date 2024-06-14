@@ -55,6 +55,12 @@ public class Project {
             joinColumns = { @JoinColumn(name = "project_id") },
             inverseJoinColumns = { @JoinColumn(name = "skill_id") }
     )
+
+
     private List<Skill> skills;
+
+    @OneToOne(mappedBy = "project", cascade = CascadeType.ALL)
+    @JoinColumn(name = "project_id") // This specifies the foreign key column in projects_scores_overview table
+    private ProjectScoresOverview projectsScoresOverview;
 
 }
