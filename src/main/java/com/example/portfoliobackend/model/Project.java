@@ -59,8 +59,8 @@ public class Project {
 
     private List<Skill> skills;
 
-    @OneToOne(mappedBy = "project", cascade = CascadeType.ALL)
-    @JoinColumn(name = "project_id") // This specifies the foreign key column in projects_scores_overview table
-    private ProjectScoresOverview projectsScoresOverview;
+    @OneToOne(mappedBy = "project")
+    private ProjectScoreOverview projectsScoreOverview;
+    // ProjectScoreOverview owns the foreign key
 
 }

@@ -16,3 +16,6 @@ public class ModelMapperUtil {
         return modelMapper.map(entity, dtoClass);
     }
 }
+
+// We are mapping the entity to a DTO to render get-mapping
+/* Essentially, this is looking through the attributes of the DTO and matching it to the attributes of the entity and then mapping the entity attribute's values to the respective attribute in the DTO */

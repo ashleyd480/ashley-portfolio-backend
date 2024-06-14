@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Table(name = "project_score_overview")
 
-public class ProjectScoresOverview {
+public class ProjectScoreOverview {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,10 +24,14 @@ public class ProjectScoresOverview {
     @Column(name = "short_desc", length = 500)
     private String shortDesc;
 
-    @Column(name = "instructor_overall_comment", length = 1000)
+    @Column(name = "instructor_overall_comment", length = 2000)
     private String instructorOverallComment;
 
     @Column(name = "has_score")
     private Boolean hasScore;
+
+    @OneToOne
+    @JoinColumn(name = "project_id", referencedColumnName = "project_id", insertable = false, updatable = false)
+    private Project project;
 
 }
