@@ -5,6 +5,8 @@ import com.example.portfoliobackend.dto.ProjectScoreOverviewDTO;
 import com.example.portfoliobackend.model.BootcampScore;
 import com.example.portfoliobackend.model.ProjectScoreOverview;
 import com.example.portfoliobackend.repository.IBootcampScoreRepository;
+import com.example.portfoliobackend.repository.ICapstoneScoreRepository;
+import com.example.portfoliobackend.repository.ILeagueAppScoreRepository;
 import com.example.portfoliobackend.repository.IProjectScoreOverviewRepository;
 import com.example.portfoliobackend.utils.ModelMapperUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,11 +17,20 @@ import java.util.List;
 
 @Service
 public class KPIScoreService {
+
+    @Autowired
+    IProjectScoreOverviewRepository iProjectScoreOverviewRepository;
+
+    //repositories for my project scores
+    /* had to make separate dbs due to distinct data structure and column headers*/
     @Autowired
     IBootcampScoreRepository iBootcampScoreRepository;
 
     @Autowired
-    IProjectScoreOverviewRepository iProjectScoreOverviewRepository;
+    ICapstoneScoreRepository iCapstoneScoreRepository;
+
+    @Autowired
+    ILeagueAppScoreRepository iLeagueAppScoreRepository;
 
     @Autowired
     ModelMapperUtil modelMapperUtil;
