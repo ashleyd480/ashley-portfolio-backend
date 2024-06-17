@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
+
 @Entity
 @Data
 @Table(name = "capstone_score")
@@ -24,7 +26,8 @@ public class CapstoneScore {
     private String capstoneCriteria;
 
     @Column(name = "capstone_possible_points")
-    private Integer capstonePossiblePoints;
+    private BigDecimal capstonePossiblePoints;
+    // used to handle Numeric decimal values in postgres
 
     @Column(name = "capstone_actual_points")
     private Integer capstoneActualPoints;
