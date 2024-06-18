@@ -1,13 +1,8 @@
 package com.example.portfoliobackend.service;
 
-import com.example.portfoliobackend.dto.BootcampScoreDTO;
-import com.example.portfoliobackend.dto.ProjectScoreOverviewDTO;
-import com.example.portfoliobackend.model.BootcampScore;
-import com.example.portfoliobackend.model.ProjectScoreOverview;
-import com.example.portfoliobackend.repository.IBootcampScoreRepository;
-import com.example.portfoliobackend.repository.ICapstoneScoreRepository;
-import com.example.portfoliobackend.repository.ILeagueAppScoreRepository;
-import com.example.portfoliobackend.repository.IProjectScoreOverviewRepository;
+import com.example.portfoliobackend.dto.*;
+import com.example.portfoliobackend.model.*;
+import com.example.portfoliobackend.repository.*;
 import com.example.portfoliobackend.utils.ModelMapperUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,6 +12,10 @@ import java.util.List;
 
 @Service
 public class KPIScoreService {
+
+    // to map entity to DTO - as we require DTO to transfer data to frontend as best practice
+    @Autowired
+    ModelMapperUtil modelMapperUtil;
 
     @Autowired
     IProjectScoreOverviewRepository iProjectScoreOverviewRepository;
@@ -33,8 +32,12 @@ public class KPIScoreService {
     ILeagueAppScoreRepository iLeagueAppScoreRepository;
 
     @Autowired
-    ModelMapperUtil modelMapperUtil;
+    ISpringBackendScoreRepository iSpringBackendScoreRepository;
 
+
+    /* ------- RETRIEVE -------- */
+
+    // GA + mentor scores
     public List<BootcampScoreDTO> getBootcampScoreList() {
         try {
             List<BootcampScore> bootcampScoreList = iBootcampScoreRepository.findAll();
@@ -58,6 +61,7 @@ public class KPIScoreService {
 //    }
 
 
+    // Project Score Overview
     public List<ProjectScoreOverviewDTO> getProjectScoreOverview() {
         try {
             List<ProjectScoreOverview> projectScoreOverviews = iProjectScoreOverviewRepository.findAll(); // Assuming you have a method to fetch all or the relevant subset
@@ -82,5 +86,52 @@ public class KPIScoreService {
             throw new RuntimeException("Error fetching project score overview list: " + e.getMessage());
         }
 
+    }
+
+    // Capstone Score
+
+    public List<CapstoneScoreDTO> getCapstoneScore() {
+        try {
+            List<CapstoneScore> capstoneScoreList = iCapstoneScoreRepository.findAll();
+            List<CapstoneScoreDTO> capstoneScoreDTOList = new ArrayList<>();
+            for (CapstoneScore capstoneScore : capstoneScoreList) {
+                capstoneScoreDTOList.add(modelMapperUtil.map(capstoneScore, CapstoneScoreDTO.class));
+
+            }
+            return capstoneScoreDTOList;
+        } catch (Exception e) {
+            throw new RuntimeException("Error fetching capstone score list: " + e.getMessage());
+        }
+    }
+
+
+    // League App Score
+
+    public List<LeagueAppScoreDTO> getLeagueAppScore() {
+        try {
+            List<LeagueAppScore> leagueAppScoreList = iLeagueAppScoreRepository.findAll();
+            List<LeagueAppScoreDTO> leagueScoreDTOList = new ArrayList<>();
+            for (LeagueAppScore leagueAppScore : leagueAppScoreList) {
+                leagueScoreDTOList.add(modelMapperUtil.map(leagueAppScore, LeagueAppScoreDTO.class));
+            }
+            return leagueScoreDTOList;
+        } catch (Exception e) {
+            throw new RuntimeException("Error fetching league app score list: " + e.getMessage());
+        }
+    }
+
+
+    // Spring Backend Score
+    public List<SpringBackendScoreDTO> getSpringBackendScore() {
+        try {
+            List<SpringBackendScore> springBackendScoreList = iSpringBackendScoreRepository.findAll();
+            List<SpringBackendScoreDTO> springBackendScoreDTOList = new ArrayList<>();
+            for (SpringBackendScore springBackendScore : springBackendScoreList) {
+                springBackendScoreDTOList.add(modelMapperUtil.map(springBackendScore, SpringBackendScoreDTO.class));
+            }
+            return springBackendScoreDTOList;
+        } catch (Exception e) {
+            throw new RuntimeException("Error fetching Spring backend score list: " + e.getMessage());
+        }
     }
 }
