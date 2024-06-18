@@ -9,6 +9,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class SpringBackendScoreDTO {
     private String springBackendCriteria;
-    private Integer springBackendScore;
+    private String springBackendScore; // as this includes numbers/comments
 
 }

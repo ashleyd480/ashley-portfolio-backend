@@ -21,6 +21,6 @@ public class SpringBackendScore {
     private String springBackendCriteria;
 
     @Column(name = "spring_backend_score")
-    private Integer springBackendScore;
+    private String springBackendScore; // as this includes numbers/comments
 
 }
