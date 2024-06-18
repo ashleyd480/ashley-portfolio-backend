@@ -15,12 +15,12 @@ public class SpringBackendScore {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "spring_backend_score_seq")
     @Column(name = "spring_backend_score_id")
-    private Long id;
+    private Integer springBackendScoreId;
 
     @Column(name = "spring_backend_criteria", length = 100)
-    private String criteria;
+    private String springBackendCriteria;
 
     @Column(name = "spring_backend_score")
-    private Integer score;
+    private Integer springBackendScore;
 
 }
