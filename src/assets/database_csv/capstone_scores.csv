@@ -1,0 +1,24 @@
+    capstone_score_category, capstone_criteria,capstone_possible_points,capstone_actual_points, capstone_criteria_comments
+Introduction and Project Submission Details,Presentation and Creativity,5,5,--
+Back-End Development,Entity Design and Relationships,5,5,--
+Back-End Development,Java Object-Oriented Programming,5,5,--
+Back-End Development,Authentication and User Management,5,5,--
+Back-End Development,CRUD Operations and Data Integrity,5,5,--
+Back-End Development,Error Handling and Validation,5,4,"The method authUserSignup returns plain strings for error messages, which is not a good practice. It should return standardized error responses. Just a tip:- Using general RuntimeException can be improved by defining specific custom exceptions for different error scenarios."
+Advanced Back-End Features,Stream API and JPQL,5,5,--
+Advanced Back-End Features,Aspect-Oriented Programming and Logging,5,5,--
+Advanced Back-End Features,Unit testing,5,5,--
+Front-End Development,Aesthetics and Usability,5,5,--
+Front-End Development,Components and Navigation,5,5,Look into PropTypes for type checking and improve accessibility features
+Front-End Development,Profile Management and Content Interaction,5,5,--
+Front-End Development,React Architecture and State Management,5,5,Very nice! Look into Redux for state management alternative
+Front-End Development,Responsive design,5,4,I am seeing some layouts breaking on small screens
+Front-End Development,HTML and CSS Best Practices,5,3,Use sematic HTML as much as you can and use proper document title
+Front-End Development,User Interface and Experience,5,5,--
+Functionality and Code Quality,Functionality,5,4,"The method searchPlaces performs multiple database calls in a loop, which can be inefficient. Consider using a more efficient query or batch processing."
+Functionality and Code Quality,Code Quality,5,4,Hardcoded Values in react: Avoid hardcoding values like image paths. Use imports or a configuration file. Remove Redundant logics for example PlaceService:- The method contains redundant logic for fetching tags for places. This logic can be refactored into a separate private method to avoid duplication.
+Functionality and Code Quality,Adherence to Software Engineering Principles,5,5,Remove Redundant logics for example PlaceService:- The method contains redundant logic for fetching tags for places. This logic can be refactored into a separate private method to avoid duplication.
+Version Control and Documentation,Version Control Practices,2.5,5,--
+Version Control and Documentation,Documentation Quality,2.5,5,--
+Additional Bonus Features,Bonus Features (Optional),5,0,--
+Total,Total Score,100,99,--

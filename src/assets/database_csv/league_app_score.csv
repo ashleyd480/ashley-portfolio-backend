@@ -1,0 +1,8 @@
+league_app_criteria,league_app_feedback
+Models,Ideal model setup for entity relationships.
+Business Logic,"Looks amazing. Code is logical, readable, and well documented."
+Controllers,"Very cleanly organized and well documented controllers. HTTP endpoints and service connections look great. Very, very minor optimization, the functions for getting all players in a tournament and the same but with a limit could be combined into one by adding ""required = false"" to the @RequestParam annotation."
+Error Handling,Error handling looks very good for all possible findById failure points.
+Git History,"Long and equally shared commit history, replete with pull requests. Excellent job."
+Documentation,"Very well detailed comments in the non-""basic CRUD"" functions. Descriptive comments throughout."
+Overall,Absolutely excellent. Great work.
