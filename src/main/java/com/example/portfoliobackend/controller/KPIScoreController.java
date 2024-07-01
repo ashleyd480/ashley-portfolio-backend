@@ -2,6 +2,7 @@ package com.example.portfoliobackend.controller;
 
 import com.example.portfoliobackend.dto.*;
 import com.example.portfoliobackend.service.KPIScoreService;
+import com.example.portfoliobackend.utils.ResponseUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,46 +23,38 @@ public class KPIScoreController {
     /* ------- RETRIEVE -------- */
     // GA + mentor scores
     @GetMapping("bootcamp")
-    public ResponseEntity<?> getBootcampScoreList () {
-        List<BootcampScoreDTO> bootcampScoreDTOList= kpiScoreService.getBootcampScoreList();
-        ResponseDTO responseDTO = ResponseDTO.builder().hasError(false).data(bootcampScoreDTOList).status(HttpStatus.OK).build();
-        return ResponseEntity.ok(responseDTO);
-
+    public ResponseEntity<?> getBootcampScoreList() {
+        List<BootcampScoreDTO> bootcampScoreDTOList = kpiScoreService.getBootcampScoreList();
+        return ResponseUtils.generateResponse(bootcampScoreDTOList);
     }
 
     // Project Score Overview
     @GetMapping("project-score-overview")
-    public ResponseEntity<?> getProjectScoreOverview () {
+    public ResponseEntity<?> getProjectScoreOverview() {
         List<ProjectScoreOverviewDTO> projectScoreOverviewDTOList = kpiScoreService.getProjectScoreOverview();
-        ResponseDTO responseDTO = ResponseDTO.builder().hasError(false).data(projectScoreOverviewDTOList).status(HttpStatus.OK).build();
-        return ResponseEntity.ok(responseDTO);
-
+        return ResponseUtils.generateResponse(projectScoreOverviewDTOList);
     }
 
     // Capstone Score
     @GetMapping("capstone-score")
-    public ResponseEntity<?> getCapstoneScore () {
-        List <CapstoneScoreDTO> capstoneScoreDTOList = kpiScoreService.getCapstoneScore();
-        ResponseDTO responseDTO = ResponseDTO.builder().hasError(false).data(capstoneScoreDTOList).status(HttpStatus.OK).build();
-        return ResponseEntity.ok(responseDTO);
+    public ResponseEntity<?> getCapstoneScore() {
+        List<CapstoneScoreDTO> capstoneScoreDTOList = kpiScoreService.getCapstoneScore();
+        return ResponseUtils.generateResponse(capstoneScoreDTOList);
     }
 
     // League App Score
     @GetMapping("league-app-score")
-    public ResponseEntity<?>  getLeagueAppScore () {
-        List <LeagueAppScoreDTO> leagueAppScoreDTOList = kpiScoreService.getLeagueAppScore();
-        ResponseDTO responseDTO = ResponseDTO.builder().hasError(false).data(leagueAppScoreDTOList).status(HttpStatus.OK).build();
-        return ResponseEntity.ok(responseDTO);
-
+    public ResponseEntity<?> getLeagueAppScore() {
+        List<LeagueAppScoreDTO> leagueAppScoreDTOList = kpiScoreService.getLeagueAppScore();
+        return ResponseUtils.generateResponse(leagueAppScoreDTOList);
     }
+
 
     // Spring Backend Score
     @GetMapping("spring-backend-score")
-    public ResponseEntity<?>  getSpringBackendScore () {
-        List <SpringBackendScoreDTO> springBackendScoreDTOList = kpiScoreService.getSpringBackendScore();
-        ResponseDTO responseDTO = ResponseDTO.builder().hasError(false).data(springBackendScoreDTOList).status(HttpStatus.OK).build();
-        return ResponseEntity.ok(responseDTO);
-
+    public ResponseEntity<?> getSpringBackendScore() {
+        List<SpringBackendScoreDTO> springBackendScoreDTOList = kpiScoreService.getSpringBackendScore();
+        return ResponseUtils.generateResponse(springBackendScoreDTOList);
     }
 
 }
