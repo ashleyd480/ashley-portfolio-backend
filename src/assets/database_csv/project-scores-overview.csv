@@ -1,4 +1,4 @@
-projectId,short_desc,instructor_overall_comment,hasScore
+project_id,short_desc,instructor_overall_comment,has_score
 4,1st formal project (frontend),Excellent project and presentation shows a clear understanding of her code and how it's put together. Asked for help many times. Incredible note taking.,FALSE
 5,2nd formal project (backend),"Ashley meticulously planned every single aspect of her project, created a UML diagram, and
 made sure to consider every OOP principle that we taught when making every single function or

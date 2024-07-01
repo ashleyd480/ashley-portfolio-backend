@@ -46,6 +46,7 @@ public class ProjectService {
                     skillDTOs.add(modelMapperUtil.map(skill, SkillDTO.class));
                 }
 
+
                 projectForListDTO.setSkills(skillDTOs);
                 allProjectsWithSkills.add(projectForListDTO);
             }
