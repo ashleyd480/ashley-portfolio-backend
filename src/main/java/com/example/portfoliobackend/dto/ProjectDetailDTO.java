@@ -18,8 +18,7 @@ public class ProjectDetailDTO {
     private Integer projectId;
     private String projectName;
 
-    @Temporal(TemporalType.DATE)
-    private Date dateCompleted;
+    private String dateCompleted;
 
 
     private String projectHeaderImage;

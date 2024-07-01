@@ -29,8 +29,7 @@ public class Project {
     /*  @Temporal is used to control how date and time information is mapped between Java and the database in JPA entity classes
     *  telling JPA that the dataCompleted field should be mapped to a database column representing a date (without a time component).*/
     @Column(name = "date_completed")
-    @Temporal(TemporalType.DATE)
-    private Date dateCompleted;
+    private String dateCompleted;
 
     @Column(name = "projectheaderimage")
     private String projectHeaderImage;
