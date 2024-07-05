@@ -31,7 +31,7 @@ public class ProjectScoreOverview {
     private Boolean hasScore;
 
     @OneToOne
-    @JoinColumn(name = "project_id", referencedColumnName = "project_id")
+    @JoinColumn(name = "project_id", referencedColumnName = "project_id", insertable = false, updatable = false)
     private Project project;
 
 }

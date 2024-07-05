@@ -21,8 +21,6 @@ public class ProjectController {
     @Autowired
     ProjectService projectService;
 
-    //TODO since I have error handling already via global exception handler, do i still need to use this if/else here?
-
 
     /* ------- RETRIEVE -------- */
     @GetMapping
