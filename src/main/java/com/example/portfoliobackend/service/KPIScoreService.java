@@ -64,7 +64,7 @@ public class KPIScoreService {
     // Project Score Overview
     public List<ProjectScoreOverviewDTO> getProjectScoreOverview() {
         try {
-            List<ProjectScoreOverview> projectScoreOverviews = iProjectScoreOverviewRepository.findAll(); // Assuming you have a method to fetch all or the relevant subset
+            List<ProjectScoreOverview> projectScoreOverviews = iProjectScoreOverviewRepository.findAll();
             List<ProjectScoreOverviewDTO> projectScoreOverviewDTOList = new ArrayList<>();
 
             for (ProjectScoreOverview pso : projectScoreOverviews) {
