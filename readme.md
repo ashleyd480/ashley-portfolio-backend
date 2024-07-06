@@ -6,15 +6,6 @@
 
 This portfolio was started in my 18th week of coding, 2 weeks after the conclusion of our 16-week bootcamp. The repo here contains the backend codebase, using Java, Spring Boot, Postgres, and psql. As of July 2024, this repo along with the database are  hosted on Heroku. 
 
----
-
-# Table of Contents
-
-Placeholder text
-
-I. [Overview](#overview)
-
-- [Purpose](#purpose)
 
 ---
 
