@@ -6,7 +6,6 @@
 
 This portfolio was started in my 18th week of coding, 2 weeks after the conclusion of our 16-week bootcamp. The repo here contains the backend codebase, using Java, Spring Boot, Postgres, and psql. As of July 2024, this repo along with the database are  hosted on Heroku. 
 
-
 ---
 
 # Overview
@@ -18,6 +17,34 @@ Given my interest in both frontend and backend- as they each respectively appeal
 The backend is where the databases for my GA scores, project scores, and more are hosted in Postgres and saved as entities in Spring Boot. The `get mapping` API endpoints are defined in the Controller classes, and a Global Exception handler is used for displaying user-facing error messages for any exceptions that occur. DTOs are used to relay data to the frontend.
 
 ![Backend UI Screenshot](src/assets/backend-ui.png)
+
+Please note that as of 2025, I have migrated away from hosting my backend and have moved my data to frontend arrays for cost efficiency purposes.
+
+## Dependencies
+The application utilizes the Spring Boot framework with the following dependencies: Spring Web, Spring Data JPA, and also Lombok.
+
+---
+
+# Table of Contents
+
+1. [Setup](#setup)
+   - [Dataset CSV](#dataset-csv)
+   - [Create Tables](#create-tables)
+      - [Primary and Foreign Keys](#primary-and-foreign-keys)
+      - [Join Table](#join-table)
+   - [Loading to Postgres](#loading-to-postgres)
+      - [Modify Tables](#modify-tables)
+2. [Mapping Entity](#mapping-entity)
+   - [Annotations](#annotations)
+   - [Data Types](#data-types)
+   - [Insertable/Updatable](#insertableupdatable)
+3. [Functionality](#functionality)
+   - [Controllers](#controllers)
+   - [Model Mapper](#model-mapper)
+4. [Error Handling](#error-handling)
+   - [Global Exception Handler](#global-exception-handler)
+   - [Helper Method](#helper-method)
+
 ---
 
 # Set Up
@@ -57,7 +84,8 @@ The foreign key of `projectId` is placed on the `projectScoresOverview` instead 
 
 
 ### Join Table
-Here is a screenshot to show the `CREATE` table command for the join table between projects and skills.   
+Here is a screenshot to show the `CREATE` table command for the join table between projects and skills.
+
 ![Join Table Command Screenshot](src/assets/join-table-command.png)  
 
 By using a composite primary key:  `PRIMARY KEY (project_id, skill_id)`, we use the natural relationship between project_id and skill_id to uniquely identify each record in the join table. This approach avoids the need for an additional surrogate key, as each project_id/skill_id combination is already unique. 
@@ -99,7 +127,6 @@ UPDATE Projects SET project_video = 'video_url' WHERE projectname = 'project_nam
 ALTER TABLE projectsScoresOverview RENAME TO projectScoresOverview;
 ALTER TABLE project_score_overview RENAME COLUMN projectScoreId TO project_score
 ```
-
 
 
 ## Mapping Entity
@@ -233,7 +260,7 @@ You can see how Model Mapper allows us to map each record from my “project sco
 
 ---
 
-Error Handling
+# Error Handling
 
 
 ## Global Exception Handler
@@ -253,5 +280,3 @@ As such, you may see the following helper method in my Utils class which is used
 You can see how if the response data list is empty for whatever reason, then we return the HTTP status of `no content` and `hasError` is true.
 
 ![Error Handling Screenshot](src/assets/error-handling.png)
-
-
